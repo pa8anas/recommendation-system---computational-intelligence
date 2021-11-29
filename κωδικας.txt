@@ -1,0 +1,33 @@
+
+//κωδικας για τα νευρωνικα δικτυα
+
+net = feedforwardnet(10,'traingdm');
+net.divideParam.trainRatio = 90/100;
+net.divideParam.valRatio = 5/100;
+net.divideParam.testRatio = 5/100;
+net.trainParam.epochs = 1000;
+net.performFcn = 'mse';
+net.performFcn = 'mae';
+net.trainParam.lr = 0.001;(0.001,0.05,0.1)
+net.trainParam.mc = 0.9;(0.2,0.6)
+net.trainParam.max_fail = 1000;
+net.trainParam.showWindow = true;
+net.performParam.regularization = 0.5;(0.1,0.5,0,9)
+net = train(net,input,target);
+y = net(input)
+perf = perform(net,y,t)
+
+//κωδικας για τα βαθια νευρωνικα δικρυα
+
+net = feedforwardnet([3,4,5],'traingdm');
+net.divideParam.trainRatio = 90/100;
+net.divideParam.valRatio = 5/100;
+net.divideParam.testRatio = 5/100;
+net.trainParam.epochs = 1000;
+net.performFcn = 'mse';
+net.performFcn = 'mae';
+net.trainParam.max_fail = 1000;
+net.trainParam.showWindow = true;
+net = train(net,input,target);
+
+
